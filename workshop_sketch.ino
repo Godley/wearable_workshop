@@ -8,12 +8,12 @@
  
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(2, PIN);
 
-//uint32_t color[1]={0x4E89C7}; // girl guiding blue!
+uint32_t color[1]={0x4E89C7}; // girl guiding blue!
 //uint32_t color[1]={0xFFFF00}; // yellow!
 //uint32_t color[1]={0xFF0000}; //red
 //uint32_t color[1]={0xFF4F01}; //orange
 //uint32_t color[1]={0x00FF00}; // green
-uint32_t color[6]={0x1D6FEE,0xD5442F,0xFFB706,0x1D6FEE,0x009350,0xD5442F}; // multi coloured!
+//uint32_t color[6]={0x1D6FEE,0xD5442F,0xFFB706,0x1D6FEE,0x009350,0xD5442F}; // multi coloured!
 uint8_t i=0;
 uint8_t bright=30;
 //uint8_t bright=50; // really bright!
@@ -25,8 +25,8 @@ uint8_t timeToDelay=60;
 uint8_t col=0;
 
 //uint8_t pattern=1; // change pattern
-//uint8_t pattern=2;
 uint8_t pattern=2;
+//uint8_t pattern=3;
 void setup() {
   pixels.begin();
   pixels.setBrightness(bright); // 1/3 brightness
@@ -42,11 +42,11 @@ void loop() {
   switch(pattern)
   {
     case 1:
-      if(col<sizeof(color))
+      if(col<sizeof(color)/sizeof(color[0]))
        {
          col++;
        }
-     if(col==sizeof(color))
+     if(col==sizeof(color)/sizeof(color[0]))
        {
          col=0;
        }
@@ -63,14 +63,14 @@ void loop() {
       }
       pixels.show();
       delay(timeToDelay);
-  
+      break;
       //col++;
    case 2:
-     if(col<sizeof(color))
+     if(col<sizeof(color)/sizeof(color[0]))
        {
          col++;
        }
-     if(col==sizeof(color))
+     if(col==sizeof(color)/sizeof(color[0]))
        {
          col=0;
        }
@@ -84,23 +84,25 @@ void loop() {
      {
        i=0;
      }
+     break;
    case 3:
      if(bright>30)
       {
       neg=-1;
+      if(col==sizeof(color)/sizeof(color[0]))
+        {
+        col=0;
+        }
+      if(col<sizeof(color)/sizeof(color[0]))
+       {
+       col++;
+       }
       }
       if(bright<5)
       {
       neg=1;
       }
-     if(col==sizeof(color))
-      {
-      col=0;
-      }
-     if(col<sizeof(color)-1)
-     {
-       col++;
-     }
+     
      bright+=neg;
      pixels.setBrightness(bright);
      pixels.setPixelColor(i,color[col]);
@@ -114,6 +116,7 @@ void loop() {
      {
        i=0;
      }
+     break;
      
   }
 }
