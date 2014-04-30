@@ -1,10 +1,10 @@
-// Low power NeoPixel earrings example.  Makes a nice blinky display
-// with just a few LEDs on at any time...uses MUCH less juice than
-// rainbow display!
+// sketch for wearables workshop. Uses a switch-case to put in different algorithms
+// and variables for each changeable thing to make it easier to teach.
+// also uses commenting and uncommenting to make it accessible for slow typists/make sure everything's correct.
  
 #include <Adafruit_NeoPixel.h>
  
-#define PIN 0
+#define PIN 1
  
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(2, PIN);
 
@@ -17,7 +17,7 @@ uint32_t color[1]={0x4E89C7}; // girl guiding blue!
 uint8_t i=0;
 uint8_t bright=30;
 //uint8_t bright=50; // really bright!
-uint8_t pix=0;
+uint8_t pix=2;
 uint8_t neg=-1;
 uint8_t timeToDelay=60;
 //uint8_t timeToDelay=100; //longer delay!
@@ -31,7 +31,7 @@ void setup() {
   pixels.begin();
   pixels.setBrightness(bright); // 1/3 brightness
   uint8_t i=0;
-    for(i=0;i<2;i++)
+    for(i=0;i<pix;i++)
   {
     pixels.setPixelColor(i,color[0]);
   }
@@ -50,14 +50,14 @@ void loop() {
        {
          col=0;
        }
-      for(i=0;i<2;i++)
+      for(i=0;i<pix;i++)
       {
       pixels.setPixelColor(i,color[col]);
       }
       pixels.show();
       delay(timeToDelay);
   
-      for(i=0;i<2;i++)
+      for(i=0;i<pix;i++)
       {
         pixels.setPixelColor(i,0x000000);
       }
@@ -80,7 +80,7 @@ void loop() {
      pixels.setPixelColor(i,0x000000);
      delay(timeToDelay);
      i++;
-     if(i>=2)
+     if(i>=pix-1)
      {
        i=0;
      }
@@ -89,11 +89,11 @@ void loop() {
      if(bright>30)
       {
       neg=-1;
-      if(col==sizeof(color)/sizeof(color[0]))
+      if(col>=sizeof(color)/sizeof(color[0]))
         {
         col=0;
         }
-      if(col<sizeof(color)/sizeof(color[0]))
+      if(col<sizeof(color)/sizeof(color[0])-1)
        {
        col++;
        }
@@ -108,7 +108,7 @@ void loop() {
      pixels.setPixelColor(i,color[col]);
      pixels.show();
      delay(timeToDelay);
-     if(i<2)
+     if(i<pix-1)
      {
        i++;
      }
