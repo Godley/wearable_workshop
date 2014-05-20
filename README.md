@@ -8,7 +8,7 @@ Setup
 The resources and code are currently intended for use with the following hardware:
 - 1 GEMMA (adafruit)
 - 2 RGB neopixels (adafruit)
-- 1 battery
+- 1 battery (with a 2 pin male JST connector: advisory on what voltage is best for GEMMA will be on the Adafruit website)
 - 1 laptop+micro usb cable
 (per person/per pair)
 
