@@ -3,10 +3,10 @@ Basic library, called "Pixels", which is a class wrapping around Adafruit Neopix
 Usage:
 ------------------------------------------------------------------------------------------------------------
 Initialise the class using:
-#include "PixStrip.h"
+<pre>#include "PixStrip.h"
 #include "Adafruit_NeoPixel.h"
 
-Pixels P = Pixels(NUMBER,PIN,NEO_GRB + NEO_KHZ800,STARTING_COLOR)
+Pixels P = Pixels(NUMBER,PIN,NEO_GRB + NEO_KHZ800,STARTING_COLOR)</pre>
 
 Methods included:
 setBright(int): sets the pixel brightness to the param and updates pixels.
