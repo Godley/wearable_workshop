@@ -26,11 +26,17 @@ void Pixels::SetCol(int id, int col)
   _lights[id]=col;
 };
 
-void Pixels::UpdateLight(int id)
+void Pixels::TurnOnLight(int id)
 {
   setPixelColor(id,_lights[id]);
   show();
 };
+
+void Pixels::TurnOffLight(int id)
+{
+  setPixelColor(id,0x000000);
+  show();
+}
 
 void Pixels::SetBright(int bright)
 {
