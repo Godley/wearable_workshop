@@ -3,6 +3,9 @@ Basic library, called "Pixels", which is a class wrapping around Adafruit Neopix
 Usage:
 ------------------------------------------------------------------------------------------------------------
 Initialise the class using:
+#include "PixStrip.h"
+#include "Adafruit_NeoPixel.h"
+
 Pixels P = Pixels(NUMBER,PIN,NEO_GRB + NEO_KHZ800,STARTING_COLOR)
 
 Methods included:
