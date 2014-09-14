@@ -11,12 +11,14 @@ using namespace std;
 class Pixels : Adafruit_NeoPixel
 {
   public:
-    Pixels(uint16_t n, uint8_t p, uint8_t t, uint32_t col);
-    void SetCol(int id, int col);
-    void TurnOnLight(int id);
-    void TurnOffLight(int id);
-    void SetBright(int bright);
-  private:
-    int *_lights;
-    int _pin; 
+    Pixels(uint16_t n, uint8_t p, uint8_t t);
+	void SetPink(uint16_t id);
+	void SetBlue(uint16_t id);
+	void SetRed(uint16_t id);
+	void SetGreen(uint16_t id);
+	void SetYellow(uint16_t id);
+	void SetWhite(uint16_t id);
+	void SetCustom(uint16_t id, uint32_t col);
+    void TurnOffLight(uint16_t id);
+    void SetBright(uint8_t bright);
 };
