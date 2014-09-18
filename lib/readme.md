@@ -6,19 +6,23 @@ Initialise the class using:
 <pre>#include "PixStrip.h"
 #include "Adafruit_NeoPixel.h"
 
-Pixels P = Pixels(NUMBER,PIN,NEO_GRB + NEO_KHZ800,STARTING_COLOR)</pre>
+Pixels P = Pixels(NUMBER_LEDS,PIN,NEO_GRB + NEO_KHZ800)</pre>
 
 Methods included:
 setBright(int): sets the pixel brightness to the param and updates pixels.
 
-TurnOnLight(id): turns on the selected pixel
+Set<Pink,Red,Green,Blue,Yellow>(id): turns on the selected pixel to <color> and updates strip
 
+SetCustom(id,hex_color): turns on the selected pixel to hex_color
 TurnOffLight(id): turns off the selected pixel
 
-setCol(id,col): sets the selected pixel to a particular colour
 
 Example:
 <pre>
+#include "PixStrip.h"
+#include "Adafruit_NeoPixel.h"
+
+Pixels P = Pixels(2,1,NEO_GRB + NEO_KHZ800)
 void setup()
 {
 // all the setup for the pixels is now done inside the class
@@ -26,7 +30,7 @@ void setup()
 
 void loop()
 {
-P.TurnOnLight(0);
+P.SetRed(0);
 delay(40);
 P.TurnOffLight(0);
 }</pre>
