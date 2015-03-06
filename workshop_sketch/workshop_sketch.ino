@@ -80,7 +80,7 @@ void loop() {
      pixels.setPixelColor(i,0x000000);
      delay(timeToDelay);
      i++;
-     if(i>=pix-1)
+     if(i>pix-1)
      {
        i=0;
      }
